@@ -44,6 +44,8 @@ public class HomePage extends BasePage {
 		
 		navigateToUrl("https://thesportstak.com/");
 		
+		waitForPageLoaded();
+		
 		List<String> images=findAllLinksOnPage();
 		System.out.println("Total no. of images are " + images.size());
 		for(String imageurl:images) {
