@@ -33,15 +33,17 @@ public abstract class BaseTest {
 	/* pages object initialization */
 
 	protected HomePage homePage;
+	public static ThreadLocal<WebDriver> tlDriver = new ThreadLocal<WebDriver>();
 
 	@BeforeMethod()
 	public void setUp(Method method) throws Exception {
 
 		WebDriverManager.chromedriver().setup();
-		driver = new ChromeDriver();
+//		driver = new ChromeDriver();
+		tlDriver.set(new ChromeDriver());
 
 		/* Delete cookies */
-		driver.manage().deleteAllCookies();
+		getWebDriver().manage().deleteAllCookies();
 
 		/* maximize the browser */
 		getWebDriver().manage().window().maximize();
@@ -76,7 +78,8 @@ public abstract class BaseTest {
 
 	/* Return WebDriver */
 	public WebDriver getWebDriver() {
-		return driver;
+		return tlDriver.get();
+		
 	}
 
 	/* capturing screenshot */

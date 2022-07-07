@@ -2,12 +2,14 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="Suite">
 
-
-  <test thread-count="5" name="Test">
-    <classes>
-      <class name="com.tak.qa.tests.TestLanguage"/>
-       <class name="com.tak.qa.tests.TestBrokenLinks"/>
-        <class name="com.tak.qa.tests.TestChangeTheme"/>
-    </classes>
-  </test> <!-- Test -->
+	<listeners>
+		<listener class-name="com.tak.qa.pages.ExtentReportListener" />
+	</listeners>
+	<test thread-count="5" name="Test">
+		<classes>
+			<class name="com.tak.qa.tests.TestLanguage" />
+			<class name="com.tak.qa.tests.TestBrokenLinks" />
+			<class name="com.tak.qa.tests.TestChangeTheme" />
+		</classes>
+	</test> <!-- Test -->
 </suite> <!-- Suite -->
